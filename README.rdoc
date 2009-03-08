@@ -1,0 +1,9 @@
+== jQuery Autocompleter Plugin
+
+But for now, I can tell you that I modeled this autocompleter to be as *simple* as possible.
+
+From a higher level, and autocompleter is nothing more than a submission of the contents of a
+single form field to a url, and then displaying the results.
+The rest is up in the air. And that is the core principal of this autocompleter plugin.
+
+More documentation to come soon...
