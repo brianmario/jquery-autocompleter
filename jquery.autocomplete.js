@@ -76,7 +76,6 @@
                             if (settings.autoClearResults) {
                                 input.trigger('autocomplete.finish', '');
                             }
-                            input.trigger('autocomplete.emptyfield');
                         }
                     }, settings.delay);
                 });
