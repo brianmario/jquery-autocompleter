@@ -18,6 +18,8 @@
 //                          Default: true
 //      extraParams        An object of key/value pairs to send along with the request.
 //                          Default: {}
+//      dataType           Sets the data type jQuery can expect results to be in
+//                          Default: html
 //
 // Events:
 // All events are fired on the element(s) that match the original selector passed.
@@ -34,7 +36,8 @@
                     delay: 250,
                     useCache: true,
                     extraParams: {},
-                    autoClearResults: true
+                    autoClearResults: true,
+                    dataType: 'html'
                 }, options);
             var req = null;
             var timeout = null;
@@ -65,7 +68,7 @@
                                     if (input.val() === formVal) {
                                         input.trigger('autocomplete.finish', data);
                                     }
-                                }, 'html');
+                                }, settings.dataType);
                             } else if (settings.useCache) {
                                 input.trigger('autocomplete.finish', cache[formVal]);
                             }
