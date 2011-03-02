@@ -14,8 +14,6 @@
 //                          Default: null - if this setting is null, this autocompleter will gracefully do nothing.
 //      delay              The delay to wait after the last keyup event before sending the request
 //                          Default: 250ms
-//      resultsSelector    The selector used to inject the results of the request.
-//                          Default: input.attr('id')+'.results'.
 //      useCache           Whether or not to use a simple caching of keywords and results to prevent extra requests.
 //                          Default: true
 //      extraParams        An object of key/value pairs to send along with the request.
@@ -34,7 +32,6 @@
                     searchVar: 'q',
                     url: null,
                     delay: 250,
-                    resultsSelector: input.attr('id')+'.results',
                     useCache: true,
                     extraParams: {},
                     autoClearResults: true
@@ -66,17 +63,15 @@
                                         cache[formVal] = data;
                                     }
                                     if (input.val() === formVal) {
-                                        $(settings.resultsSelector).html(data);
-                                        input.trigger('autocomplete.finish');
+                                        input.trigger('autocomplete.finish', data);
                                     }
                                 }, 'html');
                             } else if (settings.useCache) {
-                                $(settings.resultsSelector).html(cache[formVal]);
-                                input.trigger('autocomplete.finish');
+                                input.trigger('autocomplete.finish', cache[formVal]);
                             }
                         } else {
                             if (settings.autoClearResults) {
-                                $(settings.resultsSelector).html('');
+                                input.trigger('autocomplete.finish', '');
                             }
                             input.trigger('autocomplete.emptyfield');
                         }
